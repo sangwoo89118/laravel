@@ -12,13 +12,19 @@
 */
 
 
-
-Route::get('/insert', function(){
-
-    DB::insert('insert into posts(title, content) values(?,?)', ['PHP with Laravel', 'Laravel is the best thing that has happened to PHP']);
+//DATABASE Raw SQL Queries
 
 
-    
+
+Route::get('/read', function(){
+
+
+    $result = DB::select('select * from posts where id = ?', [3]);
+
+//    foreach( $result as $post ){
+//        return $post->title;
+//    }
+    return var_dump($result);
 });
 
 
@@ -27,6 +33,11 @@ Route::get('/insert', function(){
 
 
 
+//Route::get('/insert', function(){
+//
+//    DB::insert('insert into posts(title, content) values(?,?)', ['PHP with Laravel', 'Laravel is the best thing that has happened to PHP']);
+//
+//});
 
 
 //Route::get('/', function () {
