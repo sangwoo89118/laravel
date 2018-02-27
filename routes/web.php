@@ -25,19 +25,30 @@ use App\User;
 
 
 
-//One to One relationship
+////One to One relationship
+//
+//Route::get('/user/{id}/post', function($id){
+//
+//    return User::find($id)->post;
+//});
+//
+////Inverse Relationship
+//Route::get('/post/{id}/user', function($id){
+//
+//    return Post::find($id)->user->name;
+//});
 
-Route::get('/user/{id}/post', function($id){
+// One to Many relationship
+Route::get('/posts', function(){
 
-    return User::find($id)->post;
+    $user = User::find(1);
+
+
+    foreach($user->posts as $post){
+        echo $post->title. "</br>";
+    }
+
 });
-
-
-Route::get('/post/{id}/user', function($id){
-
-    return Post::find($id)->user->name;
-});
-
 
 
 
