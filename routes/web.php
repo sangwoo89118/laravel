@@ -23,16 +23,25 @@ use App\Post;
 */
 
 
-Route::get('/basicinsert', function(){
+Route::get('/create', function(){
 
-    $post = Post::find(4);
+    Post::create(['title'=>'the create method', 'content'=>'I am learning Laravel']);
 
-    $post->title = 'updated title with ORM';
-    $post->content = 'updated content with ORM';
-
-    $post->save();  //save method insert the record
 
 });
+
+
+
+//Route::get('/basicinsert', function(){
+//
+//    $post = Post::find(4);
+//
+//    $post->title = 'updated title with ORM';
+//    $post->content = 'updated content with ORM';
+//
+//    $post->save();  //save method insert the record
+//
+//});
 
 
 
