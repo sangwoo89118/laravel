@@ -23,13 +23,20 @@ use App\Post;
 */
 
 
-Route::get('/restore', function(){
+Route::get('/forcedelete', function(){
 
-
-    Post::withTrashed()->where('is_admin', 0)->restore();
-
-
+    Post::withTrashed()->whereNotNull('deleted_at')->forceDelete();
+//    Post::onlyTrashed()->where('is_admin', 0)->forceDelete();
 });
+
+
+
+//Route::get('/restore', function(){
+//
+//
+//    Post::withTrashed()->where('is_admin', 0)->restore();
+//
+//});
 
 
 //Route::get('/readsoftdelete', function(){
