@@ -23,18 +23,33 @@ use App\User;
 |--------------------------------------------------------------------------
 */
 
+
+// accessing the intermediate table / pivot
+
+Route::get('user/pivot', function(){
+
+
+    $user = User::find(1);
+
+    foreach($user->roles as $role){
+        return $role->pivot->created_at;
+    }
+});
+
+
+
 // Many to many relationship
 
-Route::get('/user/{id}/role', function($id){
-
-    $user = User::find($id)->roles()->orderBy('name', 'desc')->get();
-
-    return $user;
-
-//    foreach($user->roles as $role){
-//        return $role->name;
-//    }
-});
+//Route::get('/user/{id}/role', function($id){
+//
+//    $user = User::find($id)->roles()->orderBy('name', 'desc')->get();
+//
+//    return $user;
+//
+////    foreach($user->roles as $role){
+////        return $role->name;
+////    }
+//});
 
 ////One to One relationship
 ///
