@@ -12,20 +12,57 @@
 */
 
 
+
+use App\Post;
+
+
+/*
+|--------------------------------------------------------------------------
+| ELOQUENT OBJECT RELATIONAL MODEL   ORM
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/find', function(){
+
+    $post = Post::find(4);
+
+    return $post -> title;
+//    foreach($posts as $post){
+//        return $post -> title;
+//    }
+
+});
+
+
+
+
+
+
+//Route::get('/read', function(){
+//
+//    $posts = Post::all();
+//
+//
+//    foreach($posts as $post){
+//        return $post -> title;
+//    }
+//
+//});
+
+
+
 /*
 |--------------------------------------------------------------------------
 | DATABASE RAW SQL
 |--------------------------------------------------------------------------
 */
 
-
-
-Route::get('/delete', function(){
-
-    $deleted = DB::delete('delete from posts where id = ?', [3]);
-
-    return $deleted;
-});
+//Route::get('/delete', function(){
+//
+//    $deleted = DB::delete('delete from posts where id = ?', [3]);
+//
+//    return $deleted;
+//});
 
 
 //Route::get('/update', function(){
@@ -61,6 +98,9 @@ Route::get('/delete', function(){
 //    return view('welcome');
 //
 //});
+
+
+
 
 
 /*
