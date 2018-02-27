@@ -28,6 +28,10 @@ use App\Tag;
 
 Route::resource('/posts', 'PostsController');
 
+//Route::group(['middleware'=>'web'], function(){
+//
+//});
+
 //Route::get('/', function () {
 //    return view('welcome');
 //
