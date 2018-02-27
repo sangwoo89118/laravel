@@ -23,12 +23,17 @@ use App\Post;
 */
 
 
-Route::get('/create', function(){
+Route::get('/update', function(){
 
-    Post::create(['title'=>'the create method', 'content'=>'I am learning Laravel']);
-
-
+    Post::where('id', 5)->where('is_admin', 0)->update(['title'=>'UPDATED BY ELOQUENT', 'content'=>'UPDATED CONTENT BY ELOQUENT']);
 });
+
+//Route::get('/create', function(){
+//
+//    Post::create(['title'=>'the create method', 'content'=>'I am learning Laravel']);
+//
+//
+//});
 
 
 
