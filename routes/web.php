@@ -16,21 +16,27 @@
 
 
 
-Route::get('/read', function(){
 
+Route::get('/update', function(){
 
-    $result = DB::select('select * from posts where id = ?', [3]);
+    $updated = DB::update('update posts set title = "Updated Title" where id = ?', [3]);
 
-//    foreach( $result as $post ){
-//        return $post->title;
-//    }
-    return var_dump($result);
+    return $updated;
+
 });
 
 
 
+//Route::get('/read', function(){
+//
+//
+//    $result = DB::select('select * from posts where id = ?', [3]);
 
-
+//    foreach( $result as $post ){
+//        return $post->title;
+//    }
+//    return var_dump($result);
+//});
 
 
 //Route::get('/insert', function(){
