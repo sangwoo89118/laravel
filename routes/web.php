@@ -23,10 +23,25 @@ use App\Post;
 */
 
 
-Route::get('/update', function(){
 
-    Post::where('id', 5)->where('is_admin', 0)->update(['title'=>'UPDATED BY ELOQUENT', 'content'=>'UPDATED CONTENT BY ELOQUENT']);
+Route::get('/delete2', function(){
+
+//    Post::destroy(3);
+    Post::destroy([6,7]);
+//    Post::where('is_admin', 0)->delete();
 });
+
+//Route::get('/delete', function(){
+//   $post = Post::find(4);
+//
+//   $post->delete();
+//});
+
+
+//Route::get('/update', function(){
+//
+//    Post::where('id', 5)->where('is_admin', 0)->update(['title'=>'UPDATED BY ELOQUENT', 'content'=>'UPDATED CONTENT BY ELOQUENT']);
+//});
 
 //Route::get('/create', function(){
 //
