@@ -16,6 +16,7 @@
 use App\Post;
 use App\User;
 use App\Country;
+use App\Photo;
 
 
 /*
@@ -37,12 +38,22 @@ Route::get('user/photos', function (){
 
 });
 
-Route::get('post/{id}/photos', function ($id){
-    $post = Post::find($id);
+//Route::get('post/{id}/photos', function ($id){
+//    $post = Post::find($id);
+//
+//    foreach($post->photos as $photo){
+//        echo $photo->path."</br>";
+//    }
+//
+//});
 
-    foreach($post->photos as $photo){
-        echo $photo->path."</br>";
-    }
+Route::get('photo/{id}/post', function($id){
+
+
+    $photo = Photo::findOrFail($id);
+
+        return $photo->imageable;
+
 
 });
 
