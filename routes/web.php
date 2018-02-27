@@ -18,19 +18,52 @@ use App\Post;
 
 /*
 |--------------------------------------------------------------------------
-| ELOQUENT OBJECT RELATIONAL MODEL   ORM
+| ELOQUENT OBJECT RELATIONAL MAPPING   ORM
 |--------------------------------------------------------------------------
 */
 
 
-Route::get('/findwhere', function(){
+Route::get('/basicinsert', function(){
 
-    $posts = Post::where('is_admin', 0)->orderBy('id', 'desc')->get();
+    $post = Post::find(4);
 
-    return $posts;
+    $post->title = 'updated title with ORM';
+    $post->content = 'updated content with ORM';
+
+    $post->save();  //save method insert the record
+
 });
 
 
+
+//Route::get('/basicinsert', function(){
+//
+//    $post = new Post;
+//
+//    $post->title = 'new Eloquent title';
+//    $post->content = 'Wow eloquent is really cool';
+//
+//    $post->save();  //save method insert the record
+//
+//});
+
+//Route::get('/findmore', function(){
+//    $posts = Post::findOrFail(1);
+//
+//    return $posts;
+//
+//    $posts = Post::where('users_count', '<', 50)->firstOrFail();
+//
+//    return $posts;
+//});
+
+
+//Route::get('/findwhere', function(){
+//
+//    $posts = Post::where('is_admin', 0)->orderBy('id', 'desc')->get();
+//
+//    return $posts;
+//});
 
 
 //
@@ -95,17 +128,17 @@ Route::get('/findwhere', function(){
 //});
 
 
-Route::get('/insert', function(){
-
-    DB::insert('insert into posts(title, content) values(?,?)', ['Laravel PHP NEW', 'Laravel is the best thing that has happened to PHP']);
-
-});
-
-
-Route::get('/', function () {
-    return view('welcome');
-
-});
+//Route::get('/insert', function(){
+//
+//    DB::insert('insert into posts(title, content) values(?,?)', ['Laravel PHP NEW', 'Laravel is the best thing that has happened to PHP']);
+//
+//});
+//
+//
+//Route::get('/', function () {
+//    return view('welcome');
+//
+//});
 
 
 
