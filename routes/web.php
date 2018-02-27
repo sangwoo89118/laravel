@@ -13,8 +13,12 @@
 
 
 
-Route::resource('posts', 'PostsController');
+//Route::resource('posts', 'PostsController');
 
+
+Route::get('/contact', 'PostsController@contact');
+
+Route::get('post/{id}/{name}/{address}', 'PostsController@show_post');
 
 
 //Route::get('/post/{id}', "PostsController@index");
