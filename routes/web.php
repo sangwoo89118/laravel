@@ -22,11 +22,21 @@ use App\Post;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/softdelete', function(){
 
-    Post::find(8)->delete();
+Route::get('/readsoftdelete', function(){
 
+//    $post = Post::find(8);
+//    return $post;
+
+    $post = Post::withTrashed()->where('id', 8)->get();
+    return $post;
 });
+
+//Route::get('/softdelete', function(){
+//
+//    Post::find(8)->delete();
+//
+//});
 
 //Route::get('/delete2', function(){
 //
