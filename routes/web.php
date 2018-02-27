@@ -23,14 +23,23 @@ use App\Post;
 */
 
 
-Route::get('/readsoftdelete', function(){
+Route::get('/restore', function(){
 
-//    $post = Post::find(8);
-//    return $post;
 
-    $post = Post::withTrashed()->where('id', 8)->get();
-    return $post;
+    Post::withTrashed()->where('is_admin', 0)->restore();
+
+
 });
+
+
+//Route::get('/readsoftdelete', function(){
+//
+////    $post = Post::find(8);
+////    return $post;
+//
+//    $post = Post::withTrashed()->where('id', 8)->get();
+//    return $post;
+//});
 
 //Route::get('/softdelete', function(){
 //
