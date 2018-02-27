@@ -14,6 +14,31 @@
 
 
 use App\Post;
+use App\User;
+
+
+/*
+|--------------------------------------------------------------------------
+| ELOQUENT RELATIONSHIPS
+|--------------------------------------------------------------------------
+*/
+
+
+
+//One to One relationship
+
+Route::get('/user/{id}/post', function($id){
+
+    return User::find($id)->post;
+});
+
+
+
+
+
+
+
+
 
 
 /*
@@ -23,11 +48,11 @@ use App\Post;
 */
 
 
-Route::get('/forcedelete', function(){
-
-    Post::withTrashed()->whereNotNull('deleted_at')->forceDelete();
-//    Post::onlyTrashed()->where('is_admin', 0)->forceDelete();
-});
+//Route::get('/forcedelete', function(){
+//
+//    Post::withTrashed()->whereNotNull('deleted_at')->forceDelete();
+////    Post::onlyTrashed()->where('is_admin', 0)->forceDelete();
+//});
 
 
 
