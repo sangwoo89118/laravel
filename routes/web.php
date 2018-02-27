@@ -22,14 +22,18 @@ use App\Post;
 |--------------------------------------------------------------------------
 */
 
+Route::get('/softdelete', function(){
 
+    Post::find(8)->delete();
 
-Route::get('/delete2', function(){
-
-//    Post::destroy(3);
-    Post::destroy([6,7]);
-//    Post::where('is_admin', 0)->delete();
 });
+
+//Route::get('/delete2', function(){
+//
+////    Post::destroy(3);
+//    Post::destroy([6,7]);
+////    Post::where('is_admin', 0)->delete();
+//});
 
 //Route::get('/delete', function(){
 //   $post = Post::find(4);
@@ -45,7 +49,7 @@ Route::get('/delete2', function(){
 
 //Route::get('/create', function(){
 //
-//    Post::create(['title'=>'the create method', 'content'=>'I am learning Laravel']);
+//    Post::create(['title'=>'the create method number 2', 'content'=>'I am learning Laravel yeah']);
 //
 //
 //});
