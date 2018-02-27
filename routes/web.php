@@ -21,6 +21,23 @@ use App\Tag;
 
 /*
 |--------------------------------------------------------------------------
+| Crud Application
+|--------------------------------------------------------------------------
+*/
+
+
+Route::resource('/posts', 'PostsController');
+
+//Route::get('/', function () {
+//    return view('welcome');
+//
+//});
+
+
+
+
+/*
+|--------------------------------------------------------------------------
 | ELOQUENT RELATIONSHIPS
 |--------------------------------------------------------------------------
 */
@@ -29,14 +46,14 @@ use App\Tag;
 //Polymorphic Many to Many Relationship
 
 
-Route::get('/tag/post', function(){
-
-    $tag = Tag::findOrFail(2);
-
-    foreach($tag->posts as $post){
-        echo $post->title;
-    }
-});
+//Route::get('/tag/post', function(){
+//
+//    $tag = Tag::findOrFail(2);
+//
+//    foreach($tag->posts as $post){
+//        echo $post->title;
+//    }
+//});
 
 
 
@@ -335,10 +352,6 @@ Route::get('/tag/post', function(){
 //});
 //
 //
-//Route::get('/', function () {
-//    return view('welcome');
-//
-//});
 
 
 

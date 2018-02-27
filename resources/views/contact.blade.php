@@ -31,6 +31,6 @@
 
 @section('footer')
 
-    <script>alert('hello world')</script>
+
 
     @stop
