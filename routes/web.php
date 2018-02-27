@@ -22,20 +22,28 @@ use App\Post;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/find', function(){
 
-    $post = Post::find(4);
+Route::get('/findwhere', function(){
 
-    return $post -> title;
-//    foreach($posts as $post){
-//        return $post -> title;
-//    }
+    $posts = Post::where('is_admin', 0)->orderBy('id', 'desc')->get();
 
+    return $posts;
 });
 
 
 
 
+//
+//Route::get('/find', function(){
+//
+//    $post = Post::find(4);
+//
+//    return $post -> title;
+//    foreach($posts as $post){
+//        return $post -> title;
+//    }
+//
+//});
 
 
 //Route::get('/read', function(){
@@ -87,17 +95,17 @@ Route::get('/find', function(){
 //});
 
 
-//Route::get('/insert', function(){
-//
-//    DB::insert('insert into posts(title, content) values(?,?)', ['PHP with Laravel', 'Laravel is the best thing that has happened to PHP']);
-//
-//});
+Route::get('/insert', function(){
+
+    DB::insert('insert into posts(title, content) values(?,?)', ['Laravel PHP NEW', 'Laravel is the best thing that has happened to PHP']);
+
+});
 
 
-//Route::get('/', function () {
-//    return view('welcome');
-//
-//});
+Route::get('/', function () {
+    return view('welcome');
+
+});
 
 
 
