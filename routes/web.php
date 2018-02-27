@@ -12,18 +12,29 @@
 */
 
 
-//DATABASE Raw SQL Queries
+/*
+|--------------------------------------------------------------------------
+| DATABASE RAW SQL
+|--------------------------------------------------------------------------
+*/
 
 
 
+Route::get('/delete', function(){
 
-Route::get('/update', function(){
+    $deleted = DB::delete('delete from posts where id = ?', [3]);
 
-    $updated = DB::update('update posts set title = "Updated Title" where id = ?', [3]);
-
-    return $updated;
-
+    return $deleted;
 });
+
+
+//Route::get('/update', function(){
+//
+//    $updated = DB::update('update posts set title = "Updated Title" where id = ?', [3]);
+//
+//    return $updated;
+//
+//});
 
 
 
@@ -52,8 +63,11 @@ Route::get('/update', function(){
 //});
 
 
-
-
+/*
+|--------------------------------------------------------------------------
+| BASIC ROUTINGS
+|--------------------------------------------------------------------------
+*/
 
 //Route::resource('posts', 'PostsController');
 
