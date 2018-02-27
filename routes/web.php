@@ -17,7 +17,7 @@ use App\Post;
 use App\User;
 use App\Country;
 use App\Photo;
-
+use App\Tag;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,17 +26,41 @@ use App\Photo;
 */
 
 
+//Polymorphic Many to Many Relationship
+
+
+Route::get('/tag/post', function(){
+
+    $tag = Tag::findOrFail(2);
+
+    foreach($tag->posts as $post){
+        echo $post->title;
+    }
+});
+
+
+
+
+
+//Route::get('/post/tag', function(){
+//   $post = Post::find(1);
+//
+//   foreach($post->tags as $tag){
+//       echo $tag->name;
+//   }
+//});
+
 
 
 //Polymorphic Relations
-Route::get('user/photos', function (){
-    $user = User::find(1);
-
-        foreach($user->photos as $photo){
-            return $photo->path;
-        }
-
-});
+//Route::get('user/photos', function (){
+//    $user = User::find(1);
+//
+//        foreach($user->photos as $photo){
+//            return $photo->path;
+//        }
+//
+//});
 
 //Route::get('post/{id}/photos', function ($id){
 //    $post = Post::find($id);
@@ -47,15 +71,15 @@ Route::get('user/photos', function (){
 //
 //});
 
-Route::get('photo/{id}/post', function($id){
-
-
-    $photo = Photo::findOrFail($id);
-
-        return $photo->imageable;
-
-
-});
+//Route::get('photo/{id}/post', function($id){
+//
+//
+//    $photo = Photo::findOrFail($id);
+//
+//        return $photo->imageable;
+//
+//
+//});
 
 
 // accessing the intermediate table / pivot
