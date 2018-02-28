@@ -28,7 +28,7 @@
         </div>
 
         <div class="form-group">
-            {!! Form::file('file') !!}
+            {!! Form::file('photo_id') !!}
         </div>
 
         <div class="form-group">
