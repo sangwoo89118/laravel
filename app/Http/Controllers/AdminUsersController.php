@@ -70,6 +70,8 @@ class AdminUsersController extends Controller
             $input['photo_id'] = $photo->id;
         }
 
+        Session::flash('added_user', $input['name'].' has ben added');
+
         User::create($input);
         return redirect('/admin/users');
 //        User::create($request->all());
@@ -140,7 +142,7 @@ class AdminUsersController extends Controller
             $input['photo_id'] = $photo->id;
         }
 
-
+        Session::flash('updated_user', $input['name'].'\'s information has ben added');
         $user->update($input);
 
         return redirect('/admin/users');

@@ -9,6 +9,16 @@
         <p class="bg-danger">{{session('deleted_user')}}</p>
 
         @endif
+    @if(Session::has('added_user'))
+
+        <p class="bg-success">{{session('added_user')}}</p>
+
+    @endif
+    @if(Session::has('updated_user'))
+
+        <p class="bg-success">{{session('updated_user')}}</p>
+
+    @endif
 
     <h1>Users</h1>
 
