@@ -20,6 +20,7 @@ use App\Photo;
 use App\Tag;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 
 
@@ -27,6 +28,20 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function(){
 //   return view('welcome');
+
+
+    $data = [
+        'title'=>'Hello World',
+        'content'=>'Hello World content'
+    ];
+
+    Mail::send('emails.test', $data, function($message){
+
+
+        $message->to('sangwoo89118@gmail.com', 'Sangwoo Kim')->subject('Hello World');
+
+
+    });
 
 
 //    if(Auth::check()){
@@ -43,7 +58,7 @@ Route::get('/', function(){
 //    }
 
 
-    Auth::logout();
+//    Auth::logout();
 
 });
 
