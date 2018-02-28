@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
+
+    public $directory = "/images/";
+
     use SoftDeletes;
 
 
@@ -17,7 +20,7 @@ class Post extends Model
 
     protected $fillable = [
 
-        'title', 'content'
+        'title', 'content', 'path'
     ];
 
 
@@ -41,10 +44,13 @@ class Post extends Model
 
         return $query->orderBy('id', 'asc')->get();
 
-
-
     }
 
+    public function getPathAttribute($value){
+
+        return $this->directory.$value;
+
+    }
 
 
 //    protected $table = 'postadmins';
