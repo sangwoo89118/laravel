@@ -37,6 +37,15 @@ class Post extends Model
     }
 
 
+    public static function scopeLatest($query){
+
+        return $query->orderBy('id', 'asc')->get();
+
+
+
+    }
+
+
 
 //    protected $table = 'postadmins';
 //    protected $primaryKey = 'post_id';

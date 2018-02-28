@@ -49,9 +49,35 @@ Route::get('/dates', function(){
 
     echo '<br>';
 
-    echo '<br>';
 
 });
+
+
+
+
+Route::get('/getname', function(){
+
+
+    $user = User::find(1);
+
+
+    echo $user->name;
+});
+
+
+Route::get('/setname', function(){
+    $user = User::find(1);
+
+    $user->name = "william";
+
+    $user->save();
+});
+
+
+
+
+
+
 
 //Route::group(['middleware'=>'web'], function(){
 //
