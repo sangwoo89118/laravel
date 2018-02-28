@@ -19,6 +19,41 @@ use App\Country;
 use App\Photo;
 use App\Tag;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+
+
+
+
+
+Route::get('/', function(){
+//   return view('welcome');
+
+
+//    if(Auth::check()){
+//
+//        return "the user is logged in";
+//    }
+
+//    $username = 'sdafas';
+//    $password = '453fdsgsd';
+//
+//    if( Auth::attempt(['username'=>$username, 'password'=>$password])){
+//
+//        return redirect()=>intended('/admin');
+//    }
+
+
+    Auth::logout();
+
+});
+
+Route::auth();
+
+Route::get('home', 'HomeController@index');
+
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,51 +62,51 @@ use Carbon\Carbon;
 */
 
 
-Route::resource('/posts', 'PostsController');
-
-Route::get('/dates', function(){
-
-    $date = new DateTime('+1 week');
-
-    echo $date->format('m-d-y');
-
-    echo '<br>';
-
-    echo Carbon::now()->addDays(10)->diffForHumans();
-
-    echo '<br>';
-
-    echo Carbon::now()->subMonths(5)->diffForHumans();
-
-    echo '<br>';
-
-    echo Carbon::now()->yesterday()->diffForHumans();
-
-    echo '<br>';
-
-
-});
-
-
+//Route::resource('/posts', 'PostsController');
+//
+//Route::get('/dates', function(){
+//
+//    $date = new DateTime('+1 week');
+//
+//    echo $date->format('m-d-y');
+//
+//    echo '<br>';
+//
+//    echo Carbon::now()->addDays(10)->diffForHumans();
+//
+//    echo '<br>';
+//
+//    echo Carbon::now()->subMonths(5)->diffForHumans();
+//
+//    echo '<br>';
+//
+//    echo Carbon::now()->yesterday()->diffForHumans();
+//
+//    echo '<br>';
+//
+//
+//});
 
 
-Route::get('/getname', function(){
 
 
-    $user = User::find(1);
-
-
-    echo $user->name;
-});
-
-
-Route::get('/setname', function(){
-    $user = User::find(1);
-
-    $user->name = "william";
-
-    $user->save();
-});
+//Route::get('/getname', function(){
+//
+//
+//    $user = User::find(1);
+//
+//
+//    echo $user->name;
+//});
+//
+//
+//Route::get('/setname', function(){
+//    $user = User::find(1);
+//
+//    $user->name = "william";
+//
+//    $user->save();
+//});
 
 
 
@@ -454,3 +489,7 @@ Route::get('/setname', function(){
 //
 //}));
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
