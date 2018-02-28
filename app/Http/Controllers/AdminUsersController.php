@@ -56,7 +56,7 @@ class AdminUsersController extends Controller
             $input['password'] = bcrypt($request->password);
 
         }
-        
+
 
         if($file = $request->file('photo_id')){
 
