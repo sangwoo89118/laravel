@@ -37,12 +37,12 @@ class User extends Authenticatable
     }
 
 
-    public function setPasswordAttribute($password){
-
-        if(!empty($password)){
-            $this->attributes['password'] = bcrypt($password);
-        }
-    }
+//    public function setPasswordAttribute($password){
+//
+//        if(!empty($password)){
+//            $this->attributes['password'] = bcrypt($password);
+//        }
+//    }
 
 
     public function isAdmin(){
@@ -53,6 +53,8 @@ class User extends Authenticatable
         return false;
     }
 
-
+    public function posts(){
+        return $this->hasMany('App\Post');
+    }
 
 }
