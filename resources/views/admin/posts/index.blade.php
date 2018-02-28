@@ -32,7 +32,7 @@
 
                     {{--<td><a href="{{route('admin.users.edit', $user->id)}}">{{$user->name}}</a></td>--}}
                     <td>{{$post->user->name}}</td>
-                    <td>{{$post->category_id}}</td>
+                    <td>{{$post->category ? $post->category->name : 'Uncategorized'}}</td>
                     {{--<td>{{$post->is_active == 1 ? 'Active' : 'Not Active'}}</td>--}}
 
                     <td>{{$post->title}}</td>
