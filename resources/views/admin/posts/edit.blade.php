@@ -24,8 +24,17 @@
             {!! Form::label('body', 'Description:') !!}
             {!! Form::textarea('body', null, ['class'=>'form-control', 'rows' => 5]) !!}
         </div>
+
+
         <div class="form-group">
-            {!! Form::submit('Create Post', ['class'=>'btn btn-primary']) !!}
+            {!! Form::submit('Create Post', ['class'=>'btn btn-primary pull-left']) !!}
+        </div>
+        {!! Form::close() !!}
+
+
+        {!! Form::open(['method'=>'DELETE', 'action'=>['AdminPostsController@destroy', $post->id] ]) !!}
+        <div class="form-group">
+            {!! Form::submit('Delete post', ['class'=>'btn btn-danger pull-right']) !!}
         </div>
         {!! Form::close() !!}
     </div>

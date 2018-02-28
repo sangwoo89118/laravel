@@ -6,6 +6,22 @@
 
     <h1>Posts</h1>
 
+    @if(Session::has('deleted_post'))
+
+        <p class="bg-danger">{{session('deleted_post')}}</p>
+
+    @endif
+    @if(Session::has('added_post'))
+
+        <p class="bg-success">{{session('added_post')}}</p>
+
+    @endif
+    {{--@if(Session::has('updated_user'))--}}
+
+        {{--<p class="bg-success">{{session('updated_user')}}</p>--}}
+
+    {{--@endif--}}
+
 
     <table class="table">
         <thead>

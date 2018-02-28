@@ -8,6 +8,7 @@ use App\Photo;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class AdminPostsController extends Controller
 {
@@ -61,6 +62,8 @@ class AdminPostsController extends Controller
 
         }
 
+
+        Session::flash('added_post', $input['title'].' has ben added');
         $user->posts()->create($input);
 
         return redirect('/admin/posts');
@@ -139,5 +142,15 @@ class AdminPostsController extends Controller
     public function destroy($id)
     {
         //
+
+        $post = Post::findOrFail($id);
+        $postTitle = $post->title;
+
+        unlink(public_path().$post->photo->file);
+        $post->delete();
+
+        Session::flash('deleted_post', $postTitle.' has ben deleted');
+
+        return redirect('/admin/posts');
     }
 }
