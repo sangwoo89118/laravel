@@ -49,7 +49,7 @@
 
                         {!! Form::open(['method'=>'PATCH', 'action'=>['PostCommentsController@update', $comment->id] ]) !!}
 
-                            <input type="hidden" name='is_active' value="'1">
+                            <input type="hidden" name='is_active' value="1">
 
                             <div class="form-group">
                                 {!! Form::submit('Approve', ['class'=>'btn btn-info']) !!}
