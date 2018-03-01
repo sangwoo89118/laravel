@@ -6,7 +6,7 @@ use App\Comment;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use function redirect;
+//use function redirect;
 
 class PostCommentsController extends Controller
 {
@@ -29,10 +29,10 @@ class PostCommentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+//    public function create()
+//    {
+//        //
+//    }
 
     /**
      * Store a newly created resource in storage.
@@ -57,7 +57,7 @@ class PostCommentsController extends Controller
         ];
 
 
-        Comment::create(  $data );
+        Comment::create($data);
 
         $request->session()->flash('comment_message', 'Your message have been submitted and is waiting moderation');
 

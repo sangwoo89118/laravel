@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Route::auth();
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
@@ -41,7 +41,12 @@ Route::group(['middleware'=>'admin'], function(){
 
     Route::resource('admin/comments', 'PostCommentsController', ['as'=>'admin']);
 
-    Route::resource('admin/comments/replies', 'CommentRepliesController', ['as'=>'admin']);
+    Route::resource('admin/comments/replies', 'CommentRepliesController', ['as'=>'admin.comments']);
 
 });
 
+Route::group(['middleware'=>'auth'], function(){
+
+    Route::post('comment/reply', 'CommentRepliesController@createReply');
+
+});
